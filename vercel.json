@@ -4,7 +4,6 @@
     "outputDirectory": "dist",
     "framework": "vite",
     "rewrites": [
-        { "source": "/api/auth", "destination": "/api/auth" },
-        { "source": "/(.*)", "destination": "/index.html" }
+        { "source": "/api/(.*)", "destination": "/api/auth" }
     ]
 }
