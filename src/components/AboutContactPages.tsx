@@ -25,7 +25,7 @@ export function AboutContactPages({ type, setCurrentPage }: AboutContactPagesPro
 
     try {
       // Post message to the secure server API
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/auth?action=contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -149,7 +149,7 @@ export default function DashboardPage({
     setIsClaimingDaily(true);
     const token = localStorage.getItem("gamevault_token");
 
-    fetch("/api/auth/claim-daily-bonus", {
+    fetch("/api/auth?action=claim-daily-bonus", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`
@@ -175,7 +175,7 @@ export default function DashboardPage({
   // Reset daily login timer for review
   const handleBypassDailyTimer = () => {
     const token = localStorage.getItem("gamevault_token");
-    fetch("/api/auth/bypass-daily-timer", {
+    fetch("/api/auth?action=bypass-daily-timer", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`
@@ -201,7 +201,7 @@ export default function DashboardPage({
   const onSpinStart = async (): Promise<{ prizeIndex: number; success: boolean }> => {
     try {
       const token = localStorage.getItem("gamevault_token");
-      const res = await fetch("/api/spin", {
+      const res = await fetch("/api/auth?action=spin", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
@@ -255,7 +255,7 @@ export default function DashboardPage({
     setProfileSuccessMsg(null);
     const token = localStorage.getItem("gamevault_token");
     
-    fetch("/api/auth/update-profile", {
+    fetch("/api/auth?action=update-profile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -295,7 +295,7 @@ export default function DashboardPage({
   // Reset/Bypass Daily timer for reviewers
   const handleBypassTimer = () => {
     const token = localStorage.getItem("gamevault_token");
-    fetch("/api/auth/bypass-timer", {
+    fetch("/api/auth?action=bypass-timer", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`
@@ -317,7 +317,7 @@ export default function DashboardPage({
   // Clear Game Spin History logs
   const handleClearHistory = () => {
     const token = localStorage.getItem("gamevault_token");
-    fetch("/api/auth/clear-history", {
+    fetch("/api/auth?action=clear-history", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`
@@ -350,7 +350,7 @@ export default function DashboardPage({
     }
 
     const token = localStorage.getItem("gamevault_token");
-    fetch("/api/auth/cashout", {
+    fetch("/api/auth?action=cashout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

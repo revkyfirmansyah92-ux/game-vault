@@ -1,1 +1,14 @@
-{"users": []}
+{
+  "testuser": {
+    "username": "testuser",
+    "email": "test@test.com",
+    "passwordHash": "078826bca2e84c051a597f77dfbd7a41f312a7a9d1824d18161e623cba43815719d20e7ef7983e6d6e8b078f8c8151b9997886229e491143da92036dde11a79a",
+    "salt": "d6bdd945c608546cc16502f1574c41ee",
+    "balanceCoins": 100,
+    "balanceCash": 0,
+    "lastSpinTime": null,
+    "spinHistory": [],
+    "lastDailyLoginTime": null,
+    "freeSpinsLeft": 10
+  }
+}

@@ -48,7 +48,7 @@ export default function RegisterPage({ setCurrentPage, onRegisterSuccess }: Regi
 
     setIsLoading(true);
 
-    fetch("/api/auth/register", {
+    fetch("/api/auth?action=register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

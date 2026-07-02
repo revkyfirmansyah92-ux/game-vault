@@ -25,7 +25,7 @@ export default function LoginPage({ setCurrentPage, onLoginSuccess }: LoginPageP
 
     setIsLoading(true);
 
-    fetch("/api/auth/login", {
+    fetch("/api/auth?action=login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

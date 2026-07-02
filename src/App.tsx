@@ -23,7 +23,7 @@ export default function App() {
     const token = localStorage.getItem("gamevault_token");
     if (token) {
       setIsVerifying(true);
-      fetch("/api/auth/me", {
+      fetch("/api/auth?action=me", {
         headers: {
           "Authorization": `Bearer ${token}`
         }
