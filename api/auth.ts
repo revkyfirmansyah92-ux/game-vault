@@ -199,20 +199,26 @@ async function handlePostback(req: any, res: any) {
   const TG_TOKEN = "8901656074:AAESUA1j8m-W2FtKx9HOcKTdet4z5tHqt30";
   const TG_CHAT = "6359506565";
 
-  // OGAds sends data as query params
+  // OGAds postback parameters (case-sensitive!)
   const q = req.query;
-  const ip = q.ip || q.sub_id || "unknown";
-  const country = q.country || q.geo || "??";
-  const payout = q.payout || q.amount || "0";
-  const offerName = q.offer_name || q.offer || q.tx_id || "Unknown Offer";
-  const txId = q.tx_id || q.aff_sub || "-";
+  const offerId = q.offer_id || "-";
+  const offerName = q.offer_name || "Unknown Offer";
+  const payout = q.payout || "0";
+  const ip = q.session_ip || "unknown";
+  const affSub = q.aff_sub || "-";
+  const source = q.source || "direct";
+  const date = q.date || "";
+  const time = q.time || "";
+  const txId = offerId
 
   const msg = `🎰 *NEW CONVERSION!*
-🆔: \`${txId}\`
-💵: *$${payout}*
-🌏: ${country}
-📳: ${ip}
-📝: ${offerName}`;
+🆔 Offer: \`${offerId}\`
+📝 Name: ${offerName}
+💵 Payout: *$${payout}*
+🌐 IP: ${ip}
+📊 Source: ${source}
+🏷 Sub: ${affSub}
+📅 ${date} ${time}`;
 
   try {
     await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
