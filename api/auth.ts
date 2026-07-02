@@ -33,18 +33,18 @@ function clean(u: any) {
 }
 
 const PRIZES = [
-  { type: "cash", value: 0.5, label: "$0.5 CASH", icon: "💵" },
-  { type: "coins", value: 500, label: "500 COINS", icon: "🪙" },
-  { type: "zonk", value: 0, label: "ZONK", icon: "💨" },
-  { type: "cash", value: 1, label: "$1 CASH", icon: "💵" },
-  { type: "cash", value: 5, label: "$5 CASH", icon: "💵" },
-  { type: "coins", value: 100, label: "100 COINS", icon: "🪙" },
-  { type: "cash", value: 10, label: "$10 CASH", icon: "💵" },
-  { type: "cash", value: 100, label: "$100 CASH!", icon: "🏆" },
-  { type: "coins", value: 10, label: "10 COINS", icon: "🪙" },
-  { type: "coins", value: 20, label: "20 COINS", icon: "🪙" },
-  { type: "coins", value: 50, label: "50 COINS", icon: "🪙" },
-  { type: "coins", value: 200, label: "200 COINS", icon: "🪙" },
+  { type: "cash", value: 0.5, label: "$0.5 CASH", icon: "💵", index: 0 },
+  { type: "coins", value: 500, label: "500 COINS", icon: "🪙", index: 1 },
+  { type: "zonk", value: 0, label: "ZONK", icon: "💨", index: 2 },
+  { type: "cash", value: 1, label: "$1 CASH", icon: "💵", index: 3 },
+  { type: "cash", value: 5, label: "$5 CASH", icon: "💵", index: 4 },
+  { type: "coins", value: 100, label: "100 COINS", icon: "🪙", index: 5 },
+  { type: "cash", value: 10, label: "$10 CASH", icon: "💵", index: 6 },
+  { type: "cash", value: 100, label: "$100 CASH!", icon: "🏆", index: 7 },
+  { type: "coins", value: 10, label: "10 COINS", icon: "🪙", index: 8 },
+  { type: "coins", value: 20, label: "20 COINS", icon: "🪙", index: 9 },
+  { type: "coins", value: 50, label: "50 COINS", icon: "🪙", index: 10 },
+  { type: "coins", value: 200, label: "200 COINS", icon: "🪙", index: 11 },
 ];
 
 export default function handler(req: any, res: any) {
