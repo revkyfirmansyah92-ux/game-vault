@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PageType, User } from "../types";
-import { Sparkles, Trophy, Gift, ArrowRight, Coins } from "lucide-react";
+import { Sparkles, Trophy, Gift, ArrowRight, Coins, Lock } from "lucide-react";
 import ContentLocker from "./ContentLocker";
 
 interface ThankYouPageProps {
@@ -9,17 +9,17 @@ interface ThankYouPageProps {
 }
 
 export default function ThankYouPage({ setCurrentPage, currentUser }: ThankYouPageProps) {
-  const [showLocker, setShowLocker] = useState(true);
+  const [showLocker, setShowLocker] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
 
   return (
     <div className="w-full max-w-lg mx-auto my-12 px-4 z-10 text-center">
       
-      {/* Content Locker - shows after registration */}
+      {/* Content Locker - only shows when user clicks */}
       <ContentLocker
         show={showLocker && !unlocked}
         rewardText="100 Coins + 10 Free Spins"
-        onUnlock={() => setUnlocked(true)}
+        onUnlock={() => { setUnlocked(true); setShowLocker(false); }}
       />
       
       {/* Animated Greeting Container */}
@@ -62,17 +62,34 @@ export default function ThankYouPage({ setCurrentPage, currentUser }: ThankYouPa
             <div className="bg-zinc-900/60 border border-zinc-850 p-4 rounded-2xl flex flex-col items-center justify-center">
               <Trophy className="w-8 h-8 text-amber-400 animate-pulse mb-2" />
               <span className="text-xs text-zinc-500 font-bold uppercase tracking-wider">Daily Token</span>
-              <span className="text-lg font-black text-white mt-0.5">1 Free Spin</span>
+              <span className="text-lg font-black text-white mt-0.5">10 Free Spins</span>
             </div>
 
           </div>
 
-          <div className="p-3 bg-emerald-950/30 border border-emerald-500/20 rounded-2xl mb-8 max-w-xs w-full">
+          <div className="p-3 bg-emerald-950/30 border border-emerald-500/20 rounded-2xl mb-4 max-w-xs w-full">
             <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-widest flex items-center justify-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
               Ready to Spin Now!
             </span>
           </div>
+
+          {/* Unlock Bonus Button */}
+          {!unlocked && (
+            <button
+              onClick={() => setShowLocker(true)}
+              className="w-full py-3 mb-3 rounded-xl text-xs font-black uppercase tracking-widest bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white shadow-[0_0_20px_rgba(245,158,11,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <Lock className="w-4 h-4" />
+              Unlock Bonus Reward
+            </button>
+          )}
+
+          {unlocked && (
+            <div className="w-full py-3 mb-3 rounded-xl text-xs font-black uppercase tracking-widest bg-green-500/20 border border-green-500/30 text-green-400 flex items-center justify-center gap-2">
+              ✅ Bonus Unlocked!
+            </div>
+          )}
 
           <button
             onClick={() => setCurrentPage("DASHBOARD")}
