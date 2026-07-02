@@ -1,0 +1,6 @@
+{
+  "name": "Game Vault",
+  "description": "An exciting promotional rewards platform featuring a custom spin wheel, real-time secure result generation, and direct points redemptions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
