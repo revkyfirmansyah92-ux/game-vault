@@ -190,5 +190,37 @@ export default function handler(req: any, res: any) {
     return res.json({ success: true, message: "Thank you for contacting us!" });
   }
 
+  if (action === "postback") return handlePostback(req, res);
   return res.status(404).json({ error: "Unknown action" });
+}
+
+// ─── OGAds Postback → Telegram Notification ───
+async function handlePostback(req: any, res: any) {
+  const TG_TOKEN = "8901656074:AAESUA1j8m-W2FtKx9HOcKTdet4z5tHqt30";
+  const TG_CHAT = "6359506565";
+
+  // OGAds sends data as query params
+  const q = req.query;
+  const ip = q.ip || q.sub_id || "unknown";
+  const country = q.country || q.geo || "??";
+  const payout = q.payout || q.amount || "0";
+  const offerName = q.offer_name || q.offer || q.tx_id || "Unknown Offer";
+  const txId = q.tx_id || q.aff_sub || "-";
+
+  const msg = `🎰 *NEW CONVERSION!*
+🆔: \`${txId}\`
+💵: *$${payout}*
+🌏: ${country}
+📳: ${ip}
+📝: ${offerName}`;
+
+  try {
+    await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: TG_CHAT, text: msg, parse_mode: "Markdown" }),
+    });
+  } catch (e) { console.error("TG error:", e); }
+
+  return res.status(200).send("ok");
 }
