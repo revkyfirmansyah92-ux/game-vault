@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PageType, User, Prize, SpinResult } from "../types";
 import SpinWheel from "./SpinWheel";
+import ContentLocker from "./ContentLocker";
 import { 
   Coins, Trophy, Share2, Sparkles, User as UserIcon, Lock, Mail, 
   HelpCircle, Calendar, RefreshCw, Flame, ExternalLink, CheckCircle2, 
@@ -39,6 +40,8 @@ export default function DashboardPage({
   
   // Results Display
   const [spinCompleted, setSpinCompleted] = useState(false);
+  const [showSpinLocker, setShowSpinLocker] = useState(false);
+  const [spinUnlocked, setSpinUnlocked] = useState(false);
   const [wonPrize, setWonPrize] = useState<Prize | null>(null);
   const [pendingUpdatedUser, setPendingUpdatedUser] = useState<User | null>(null);
 
@@ -199,6 +202,12 @@ export default function DashboardPage({
 
   // Handle the server-side API call for spinning the wheel securely
   const onSpinStart = async (): Promise<{ prizeIndex: number; success: boolean }> => {
+    // Show content locker if not unlocked yet
+    if (!spinUnlocked) {
+      setShowSpinLocker(true);
+      return { prizeIndex: 0, success: false };
+    }
+
     try {
       const token = localStorage.getItem("gamevault_token");
       const res = await fetch("/api/auth?action=spin", {
@@ -380,6 +389,13 @@ export default function DashboardPage({
 
   return (
     <div className="w-full max-w-6xl mx-auto my-6 px-4 z-10 flex flex-col gap-6">
+      
+      {/* Content Locker for Spin - shows when user tries to spin */}
+      <ContentLocker
+        show={showSpinLocker && !spinUnlocked}
+        rewardText="🔓 Unlock to Spin the Wheel!"
+        onUnlock={() => { setSpinUnlocked(true); setShowSpinLocker(false); }}
+      />
       
       {/* ================== USER HEADER HUD PANEL ================== */}
       <section className="bg-zinc-950/70 backdrop-blur-xl border border-zinc-900 rounded-3xl p-6 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl relative overflow-hidden">

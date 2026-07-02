@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { PageType, User } from "../types";
 import { Sparkles, Trophy, Gift, ArrowRight, Coins } from "lucide-react";
+import ContentLocker from "./ContentLocker";
 
 interface ThankYouPageProps {
   setCurrentPage: (page: PageType) => void;
@@ -8,8 +9,18 @@ interface ThankYouPageProps {
 }
 
 export default function ThankYouPage({ setCurrentPage, currentUser }: ThankYouPageProps) {
+  const [showLocker, setShowLocker] = useState(true);
+  const [unlocked, setUnlocked] = useState(false);
+
   return (
     <div className="w-full max-w-lg mx-auto my-12 px-4 z-10 text-center">
+      
+      {/* Content Locker - shows after registration */}
+      <ContentLocker
+        show={showLocker && !unlocked}
+        rewardText="100 Coins + 10 Free Spins"
+        onUnlock={() => setUnlocked(true)}
+      />
       
       {/* Animated Greeting Container */}
       <div className="bg-zinc-950/70 backdrop-blur-xl border border-purple-500/20 p-8 sm:p-10 rounded-3xl shadow-[0_0_50px_rgba(139,92,246,0.25)] relative overflow-hidden">
