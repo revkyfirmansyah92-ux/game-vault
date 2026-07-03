@@ -7,8 +7,8 @@ Generate daily Facebook/Instagram post dengan hashtag random.
 import random
 from datetime import datetime
 
-# Link Game Vault lo
-LINK = "https://freegamevault.web.id"
+# Link Game Vault lo (pakai shortlink ShrinkMe buat earn dari shortlink juga)
+SHORTLINK = "https://shrinkme.click/3d7rh"
 
 # Template post
 TEMPLATES = [
@@ -17,7 +17,7 @@ TEMPLATES = [
 
 𝗦𝘁𝗲𝗽 𝟭 = 𝗟𝗶𝗸𝗲 𝗮𝗻𝗱 𝗦𝗵𝗮𝗿𝗲
 𝗦𝘁𝗲𝗽 𝟮 = 𝗖𝗼𝗺𝗺𝗲𝗻𝘁𝘀 " Ready "
-𝗦𝘁𝗲𝗽 𝟯 = Claim Bonus 👉 {link}
+𝗦𝘁𝗲𝗽 𝟯 = Claim Bonus 👉 {SHORTLINK}
 
 💫 𝗚𝗼𝗼𝗱 𝗟𝘂𝗰𝗸 💫
 
@@ -28,7 +28,7 @@ Win up to $100 CASH or 50,000 COINS — NO DEPOSIT needed! 💰
 
 ✅ Step 1: Like this post
 ✅ Step 2: Comment "WIN"
-✅ Step 3: Spin the wheel 👉 {link}
+✅ Step 3: Spin the wheel 👉 {SHORTLINK}
 
 🔥 Limited time only! Don't miss out! 🔥
 
@@ -39,7 +39,7 @@ We're giving away FREE coins to everyone today! 🎉
 
 👉 Like & Share
 👉 Comment "CLAIM"
-👉 Get your reward here 👉 {link}
+👉 Get your reward here 👉 {SHORTLINK}
 
 ⚡ Hurry — offer ends soon!
 
@@ -51,7 +51,7 @@ New players get 100 COINS + 10 FREE SPINS just for signing up! 🎁
 How to claim:
 1️⃣ Like this post
 2️⃣ Share with friends
-3️⃣ Sign up 👉 {link}
+3️⃣ Sign up 👉 {SHORTLINK}
 
 💵 Win real cash prizes up to $100!
 
@@ -65,7 +65,7 @@ Free entry — no deposit required! 💎
 • 50,000 Coins 🪙
 • Gift Cards 🎁
 
-Enter now 👉 {link}
+Enter now 👉 {SHORTLINK}
 
 {hashtags}""",
 ]
@@ -88,7 +88,7 @@ def generate_post():
     """Generate a random post with unique hashtags."""
     template = random.choice(TEMPLATES)
     hashtags = " ".join(random.sample(HASHTAG_POOL, 10))
-    post = template.format(link=LINK, hashtags=hashtags)
+    post = template.format(SHORTLINK=SHORTLINK, hashtags=hashtags)
     return post
 
 if __name__ == "__main__":
