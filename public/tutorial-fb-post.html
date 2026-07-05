@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Facebook Auto-Post Setup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body{background:#1a1a2e;color:#fff;font-family:'Segoe UI',sans-serif}
+        .step-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;margin-bottom:24px}
+        .step-num{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#4267B2,#8b5cf6);display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:18px;flex-shrink:0}
+        .code-block{background:#0f0f23;border:1px solid rgba(99,102,241,0.3);border-radius:8px;padding:12px;font-family:monospace;font-size:13px;color:#22d3ee;word-break:break-all}
+        .highlight{background:rgba(245,158,11,0.2);border:2px dashed #f59e0b;border-radius:8px;padding:8px 12px;display:inline-block;margin:4px 0}
+        .arrow{font-size:24px;color:#8b5cf6;animation:bounce 1s infinite}
+        @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+        .btn-fb{background:#4267B2;padding:10px 20px;border-radius:8px;display:inline-block;font-weight:bold}
+        .screenshot-placeholder{background:rgba(66,103,178,0.1);border:2px dashed #4267B2;border-radius:12px;padding:40px;text-align:center;color:#4267B2;font-size:14px}
+    </style>
+</head>
+<body class="min-h-screen p-6">
+    <div class="max-w-3xl mx-auto">
+        
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold mb-2">📘 Tutorial: Facebook Auto-Post Setup</h1>
+            <p class="text-gray-400">Step-by-step guide untuk ambil Facebook Page Access Token</p>
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="step-card">
+            <div class="flex items-start gap-4 mb-4">
+                <div class="step-num">1</div>
+                <div>
+                    <h2 class="text-xl font-bold">Buka Facebook Developer</h2>
+                    <p class="text-gray-400 text-sm">Buat Facebook App untuk bisa post otomatis</p>
+                </div>
+            </div>
+            <div class="mb-4">
+                <p class="mb-2">Buka link ini di browser:</p>
+                <div class="code-block mb-3">https://developers.facebook.com</div>
+                <p class="text-sm text-gray-400">Login pakai akun Facebook lo yang punya Page.</p>
+            </div>
+            <div class="screenshot-placeholder">
+                <div class="text-4xl mb-2">🌐</div>
+                <p>Buka <strong>developers.facebook.com</strong></p>
+                <p class="text-xs mt-1">Klik "My Apps" di pojok kanan atas</p>
+            </div>
+        </div>
+
+        <div class="text-center arrow">⬇️</div>
+
+        <!-- STEP 2 -->
+        <div class="step-card">
+            <div class="flex items-start gap-4 mb-4">
+                <div class="step-num">2</div>
+                <div>
+                    <h2 class="text-xl font-bold">Buat App Baru</h2>
+                    <p class="text-gray-400 text-sm">Create App untuk akses Facebook Page API</p>
+                </div>
+            </div>
+            <div class="mb-4">
+                <ol class="list-decimal list-inside space-y-2 text-sm">
+                    <li>Klik tombol <span class="highlight">"+ Create App"</span></li>
+                    <li>Pilih tipe: <span class="highlight">"Business"</span> → klik Next</li>
+                    <li>Isi <strong>App Name</strong>: misal "Game Vault Auto Post"</li>
+                    <li>Isi <strong>Contact Email</strong>: email lo</li>
+                    <li>Klik <span class="highlight">"Create App"</span></li>
+                </ol>
+            </div>
+            <div class="screenshot-placeholder">
+                <div class="text-4xl mb-2">➕</div>
+                <p><strong>Create App</strong> → <strong>Business</strong> → Isi nama → <strong>Create</strong></p>
+            </div>
+        </div>
+
+        <div class="text-center arrow">⬇️</div>
+
+        <!-- STEP 3 -->
+        <div class="step-card">
+            <div class="flex items-start gap-4 mb-4">
+                <div class="step-num">3</div>
+                <div>
+                    <h2 class="text-xl font-bold">Buka Graph API Explorer</h2>
+                    <p class="text-gray-400 text-sm">Tool untuk generate access token</p>
+                </div>
+            </div>
+            <div class="mb-4">
+                <p class="mb-2">Buka link ini:</p>
+                <div class="code-block mb-3">https://developers.facebook.com/tools/explorer</div>
+            </div>
+            <div class="screenshot-placeholder">
+                <div class="text-4xl mb-2">🔧</div>
+                <p><strong>Graph API Explorer</strong> — tempat generate token</p>
+            </div>
+        </div>
+
+        <div class="text-center arrow">⬇️</div>
+
+        <!-- STEP 4 -->
+        <div class="step-card">
+            <div class="flex items-start gap-4 mb-4">
+                <div class="step-num">4</div>
+                <div>
+                    <h2 class="text-xl font-bold">Generate Page Access Token</h2>
+                    <p class="text-gray-400 text-sm">Pilih app & page, lalu generate token</p>
+                </div>
+            </div>
+            <div class="mb-4">
+                <ol class="list-decimal list-inside space-y-3 text-sm">
+                    <li>
+                        <strong>Pilih App</strong>: di dropdown kiri atas, pilih app "Game Vault Auto Post" yang baru dibuat
+                    </li>
+                    <li>
+                        <strong>Klik "Generate Access Token"</strong>
+                        <div class="mt-1">
+                            <span class="inline-block px-3 py-1 bg-blue-600/30 rounded text-blue-300 text-xs">User Token</span>
+                            <span class="text-gray-500 mx-1">→</span>
+                            <span class="inline-block px-3 py-1 bg-blue-600/30 rounded text-blue-300 text-xs">Page Token</span>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Centang permission ini</strong>:
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="highlight text-xs">pages_manage_posts</span>
+                            <span class="highlight text-xs">pages_read_engagement</span>
+                            <span class="highlight text-xs">pages_show_list</span>
+                            <span class="highlight text-xs">publish_video</span>
+                        </div>
+                    </li>
+                    <li>
+                        Klik <span class="highlight">"Generate Access Token"</span>
+                    </li>
+                    <li>
+                        <strong>Copy token</strong> yang muncul!
+                        <div class="code-block mt-2 text-xs">EAAGm0X4ZCZC... (panjang banget)</div>
+                    </li>
+                </ol>
+            </div>
+            <div class="screenshot-placeholder">
+                <div class="text-4xl mb-2">🔑</div>
+                <p><strong>Generate Access Token</strong> → Centang permissions → <strong>Copy</strong></p>
+            </div>
+        </div>
+
+        <div class="text-center arrow">⬇️</div>
+
+        <!-- STEP 5 -->
+        <div class="step-card">
+            <div class="flex items-start gap-4 mb-4">
+                <div class="step-num">5</div>
+                <div>
+                    <h2 class="text-xl font-bold">Ambil Page ID</h2>
+                    <p class="text-gray-400 text-sm">ID halaman Facebook lo</p>
+                </div>
+            </div>
+            <div class="mb-4">
+                <p class="text-sm mb-3">Cara 1 — Dari URL Page lo:</p>
+                <div class="code-block mb-3 text-sm">
+                    facebook.com/<strong class="text-amber-400">GameVaultRewards</strong><br>
+                    <span class="text-gray-500">atau</span><br>
+                    facebook.com/profile.php?id=<strong class="text-amber-400">1234567890</strong>
+                </div>
+                
+                <p class="text-sm mb-3">Cara 2 — Dari Page Settings:</p>
+                <ol class="list-decimal list-inside space-y-2 text-sm">
+                    <li>Buka Facebook Page lo</li>
+                    <li>Klik <strong>"Settings"</strong> / <strong>"Pengaturan"</strong></li>
+                    <li>Scroll ke bawah, cari <strong>"Page ID"</strong></li>
+                    <li>Copy angkanya</li>
+                </ol>
+            </div>
+            <div class="screenshot-placeholder">
+                <div class="text-4xl mb-2">📄</div>
+                <p>Page Settings → Scroll bawah → <strong>Page ID</strong></p>
+            </div>
+        </div>
+
+        <div class="text-center arrow">⬇️</div>
+
+        <!-- STEP 6 -->
+        <div class="step-card border-2 border-green-500/30">
+            <div class="flex items-start gap-4 mb-4">
+                <div class="step-num" style="background:linear-gradient(135deg,#22c55e,#16a34a)">✓</div>
+                <div>
+                    <h2 class="text-xl font-bold text-green-400">Kirim ke Gue!</h2>
+                    <p class="text-gray-400 text-sm">Kasih 2 hal ini, langsung gue setup auto-post</p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-sm text-gray-400 mb-1 block">1. Page Access Token</label>
+                    <div class="code-block text-amber-400">EAAGm0X4ZCZC...xxxxx</div>
+                </div>
+                <div>
+                    <label class="text-sm text-gray-400 mb-1 block">2. Page ID</label>
+                    <div class="code-block text-amber-400">1234567890</div>
+                </div>
+            </div>
+            <div class="mt-6 p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-center">
+                <p class="text-green-400 font-bold">Setelah lo kirim 2 itu ke gue:</p>
+                <p class="text-sm text-gray-400 mt-1">Gue bikin script auto-post yang jalan otomatis setiap hari ke Facebook Page lo! 🚀</p>
+            </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="step-card mt-8">
+            <h3 class="text-lg font-bold mb-3">💡 Tips Penting</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+                <li>⚠️ <strong>Token expired</strong> — Page Access Token bisa expire. Gue bisa bikin long-lived token biar tahan lama.</li>
+                <li>⚠️ <strong>Jangan share token</strong> — token = akses ke page lo. Jangan kasih ke sembarang orang.</li>
+                <li>✅ <strong>Page, bukan Profile</strong> — auto-post cuma bisa ke Facebook Page, bukan personal profile.</li>
+                <li>✅ <strong>Rate limit</strong> — Facebook limit 25 post/hari ke page. Gue set 2-3 post/hari aja.</li>
+            </ul>
+        </div>
+
+        <div class="text-center mt-8 text-gray-500 text-xs">
+            <p>© 2026 Game Vault — Tutorial Auto-Post Setup</p>
+        </div>
+    </div>
+</body>
+</html>

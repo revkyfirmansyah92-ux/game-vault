@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎁 Claim Your Reward!</title>
+    <meta name="robots" content="noindex,nofollow">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',sans-serif;background:linear-gradient(180deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);min-height:100vh;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+        .container{max-width:480px;width:100%}
+        .gift{text-align:center;font-size:64px;margin-bottom:8px;animation:bounce 2s infinite}
+        @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        h1{text-align:center;font-size:22px;font-weight:800;margin-bottom:6px;line-height:1.3}
+        .highlight{color:#22d3ee}
+        .sub{text-align:center;color:#94a3b8;font-size:13px;margin-bottom:20px}
+        .offer{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px;margin-bottom:10px;display:flex;align-items:center;gap:12px;transition:all .2s;cursor:pointer}
+        .offer:hover{background:rgba(99,102,241,.12);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+        .offer-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+        .icon-purple{background:linear-gradient(135deg,#8b5cf6,#6d28d9)}
+        .icon-blue{background:linear-gradient(135deg,#3b82f6,#1d4ed8)}
+        .icon-orange{background:linear-gradient(135deg,#f97316,#ea580c)}
+        .offer-info{flex:1;min-width:0}
+        .offer-title{font-weight:700;font-size:14px;margin-bottom:2px}
+        .offer-desc{color:#94a3b8;font-size:11px}
+        .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:600;margin-top:4px}
+        .badge-easy{background:rgba(34,197,94,.2);color:#4ade80}
+        .badge-medium{background:rgba(59,130,246,.2);color:#60a5fa}
+        .badge-fun{background:rgba(249,115,22,.2);color:#fb923c}
+        .btn-open{padding:10px 18px;border-radius:10px;border:none;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;color:#fff;flex-shrink:0}
+        .btn-open:hover{transform:scale(1.05)}
+        .btn-green{background:linear-gradient(135deg,#22c55e,#16a34a)}
+        .btn-blue{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+        .btn-orange{background:linear-gradient(135deg,#f97316,#ea580c)}
+        .urgency{text-align:center;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:10px;margin-bottom:16px;font-size:12px}
+        .urgency span{color:#f87171;font-weight:600}
+        .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#ef4444;animation:blink 1s infinite;margin-right:4px}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+        .ticker{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.15);border-radius:10px;padding:8px;margin-bottom:16px;overflow:hidden;white-space:nowrap}
+        .ticker-inner{display:inline-block;animation:ticker 20s linear infinite;font-size:11px;color:#86efac}
+        @keyframes ticker{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+        .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+        .stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px;text-align:center}
+        .stat-num{font-size:18px;font-weight:800;color:#22d3ee}
+        .stat-label{font-size:9px;color:#64748b;text-transform:uppercase;margin-top:2px}
+        .trust{text-align:center;font-size:10px;color:#475569;margin-top:16px}
+        .trust span{margin:0 4px}
+        .how{text-align:center;margin-bottom:16px}
+        .how h3{font-size:13px;color:#94a3b8;margin-bottom:8px}
+        .steps{display:flex;align-items:center;justify-content:center;gap:8px}
+        .step{display:flex;align-items:center;gap:4px;font-size:11px;color:#cbd5e1}
+        .step-num{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+        .arrow{color:#475569;font-size:14px}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Ticker -->
+        <div class="ticker">
+            <div class="ticker-inner">
+                🎉 Alex from US just claimed $100 Amazon Card &nbsp;&nbsp;•&nbsp;&nbsp;
+                🎉 Maria from ID just claimed Free V-Bucks &nbsp;&nbsp;•&nbsp;&nbsp;
+                🎉 James from UK just claimed Netflix Premium &nbsp;&nbsp;•&nbsp;&nbsp;
+                🎉 Sarah from CA just claimed $50 Steam Wallet
+            </div>
+        </div>
+
+        <!-- Gift Icon -->
+        <div class="gift">🎁</div>
+
+        <!-- Headline -->
+        <h1>🎁 The Last Step is to <span class="highlight">Complete One Simple Task</span> Below!</h1>
+        <p class="sub">You've been selected to receive an exclusive reward. Complete one offer to claim it instantly.</p>
+
+        <!-- Urgency -->
+        <div class="urgency">
+            <span class="dot"></span>
+            <span>⏰ Only <span id="count">3</span> rewards left — expires in <span id="timer">04:59</span></span>
+        </div>
+
+        <!-- Offers -->
+        <a href="https://appsave.space/cl/i/pqr454" class="offer" style="text-decoration:none;color:#fff">
+            <div class="offer-icon icon-purple">🎮</div>
+            <div class="offer-info">
+                <div class="offer-title">Install & Open App</div>
+                <div class="offer-desc">Download and open the app for 30 seconds</div>
+                <span class="badge badge-easy">EASY • ~2 min</span>
+            </div>
+            <button class="btn-open btn-green">OPEN</button>
+        </a>
+
+        <a href="https://appsave.space/cl/i/pqr454" class="offer" style="text-decoration:none;color:#fff">
+            <div class="offer-icon icon-blue">📝</div>
+            <div class="offer-info">
+                <div class="offer-title">Complete Short Survey</div>
+                <div class="offer-desc">Answer 3-5 quick questions</div>
+                <span class="badge badge-medium">MEDIUM • ~3 min</span>
+            </div>
+            <button class="btn-open btn-blue">OPEN</button>
+        </a>
+
+        <a href="https://appsave.space/cl/i/pqr454" class="offer" style="text-decoration:none;color:#fff">
+            <div class="offer-icon icon-orange">🔥</div>
+            <div class="offer-info">
+                <div class="offer-title">Spin & Win</div>
+                <div class="offer-desc">Spin the wheel with valid information</div>
+                <span class="badge badge-fun">FUN • ~1 min</span>
+            </div>
+            <button class="btn-open btn-orange">OPEN</button>
+        </a>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat"><div class="stat-num" id="claims">24,817</div><div class="stat-label">Rewards Claimed</div></div>
+            <div class="stat"><div class="stat-num">$847K</div><div class="stat-label">Total Given</div></div>
+            <div class="stat"><div class="stat-num">4.9⭐</div><div class="stat-label">User Rating</div></div>
+        </div>
+
+        <!-- How it works -->
+        <div class="how">
+            <h3>How it works:</h3>
+            <div class="steps">
+                <div class="step"><span class="step-num">1</span> Pick offer</div>
+                <span class="arrow">→</span>
+                <div class="step"><span class="step-num">2</span> Complete it</div>
+                <span class="arrow">→</span>
+                <div class="step"><span class="step-num">3</span> Get rewarded</div>
+            </div>
+        </div>
+
+        <!-- Trust -->
+        <div class="trust">
+            <span>🔒 SSL Secured</span><span>•</span><span>✅ Verified</span><span>•</span><span>🛡️ Privacy Protected</span>
+            <br>This site is not affiliated with any brand mentioned.
+        </div>
+    </div>
+
+    <!-- Histats Tracking (GANTI DENGAN ID LO) -->
+    <script type="text/javascript">
+    var _Hasync=_Hasync||[];
+    _Hasync.push(['Histats.start','1,YOUR_HISTATS_ID,4,0,0,0,00010000']);
+    _Hasync.push(['Histats.fasi','1']);
+    _Hasync.push(['Histats.track_hits','']);
+    (function(){var hs=document.createElement('script');hs.type='text/javascript';hs.async=true;hs.src=('//s10.histats.com/js15_as.js');(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(hs);})();
+    </script>
+
+    <script>
+    // Countdown
+    let t=5*60;
+    setInterval(()=>{t--;if(t<0)t=5*60;const m=Math.floor(t/60);const s=t%60;document.getElementById('timer').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')},1000);
+    // Claims counter
+    let c=24817;
+    setInterval(()=>{c+=Math.floor(Math.random()*3)+1;document.getElementById('claims').textContent=c.toLocaleString()},4000);
+    // Remaining counter
+    let rem=3;
+    setInterval(()=>{if(rem>1){rem--;document.getElementById('count').textContent=rem}},30000);
+    </script>
+</body>
+</html>
