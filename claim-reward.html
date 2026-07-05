@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Vault - Free Coins & Spins</title>
+    <meta name="robots" content="noindex,nofollow">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#000;font-family:'Roboto',sans-serif;color:#fff}
+        .header_blue{background:linear-gradient(135deg,#1565c0,#0d47a1);padding:60px 0 20px;text-align:center}
+        .header_blue h1{font-size:36px;font-weight:300}
+        .header_text{width:80%;margin:0 auto;text-align:center}
+        .content-container{width:80%;margin:0 auto;padding:20px 0}
+        .unlockBtn{background:linear-gradient(135deg,#2196f3,#1565c0);border:none;border-radius:8px;min-height:48px;min-width:200px;padding:12px 32px;text-align:center;text-transform:uppercase;font:600 16px/1 Roboto,sans-serif;color:#fff;cursor:pointer;transition:all .3s;display:block;margin:20px auto;box-shadow:0 4px 15px rgba(33,150,243,.4)}
+        .unlockBtn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(33,150,243,.5)}
+        .reward-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px;margin:20px 0;text-align:center}
+        .reward-box img{max-width:200px;border-radius:8px;margin-bottom:10px}
+        .reward-title{font-size:20px;font-weight:700;margin-bottom:8px}
+        .reward-desc{color:#94a3b8;font-size:14px}
+        .steps{display:flex;justify-content:center;gap:20px;margin:20px 0;flex-wrap:wrap}
+        .step{text-align:center;flex:1;min-width:120px}
+        .step-num{width:40px;height:40px;border-radius:50%;background:#2196f3;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;margin:0 auto 8px}
+        .step-text{font-size:12px;color:#94a3b8}
+        .counter{background:rgba(33,150,243,.1);border:1px solid rgba(33,150,243,.2);border-radius:8px;padding:12px;text-align:center;margin:20px 0;font-size:14px}
+        .counter span{color:#2196f3;font-weight:700}
+        .proof{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:20px 0}
+        .proof-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 16px;font-size:12px}
+        .ticker{background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.15);border-radius:8px;padding:8px;overflow:hidden;white-space:nowrap;margin-bottom:20px}
+        .ticker-inner{display:inline-block;animation:ticker 25s linear infinite;font-size:12px;color:#81c784}
+        @keyframes ticker{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+        .footer{text-align:center;padding:20px;color:#475569;font-size:10px;border-top:1px solid rgba(255,255,255,.05)}
+        .confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;overflow:hidden}
+        .confetti-piece{position:absolute;width:8px;height:8px;top:-10px;animation:confetti-fall linear forwards}
+        @keyframes confetti-fall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+        .pulse{animation:pulse 2s infinite}
+        @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Confetti Container -->
+    <div class="confetti" id="confetti"></div>
+
+    <!-- Header -->
+    <div class="header_blue">
+        <div class="header_text">
+            <h1>🎮 GAME VAULT</h1>
+            <p style="color:#90caf9;font-size:14px;margin-top:8px">Free Coins & Spins Reward</p>
+        </div>
+    </div>
+
+    <!-- Ticker -->
+    <div class="content-container">
+        <div class="ticker">
+            <div class="ticker-inner">
+                🎉 Alex from US just claimed $100 Cash &nbsp;&nbsp;•&nbsp;&nbsp;
+                🎉 Maria from ID just claimed 50,000 Coins &nbsp;&nbsp;•&nbsp;&nbsp;
+                🎉 James from UK just claimed Free Spins &nbsp;&nbsp;•&nbsp;&nbsp;
+                🎉 Sarah from CA just claimed $50 Gift Card &nbsp;&nbsp;•&nbsp;&nbsp;
+                🎉 David from AU just claimed 100,000 Coins
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        
+        <!-- Reward Box -->
+        <div class="reward-box">
+            <div style="font-size:64px;margin-bottom:10px">🎰</div>
+            <div class="reward-title">Claim Your FREE Reward!</div>
+            <div class="reward-desc">Complete ONE quick offer below to unlock your reward instantly.</div>
+        </div>
+
+        <!-- Steps -->
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text">Click Button<br>Below</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">Complete<br>Quick Offer</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text">Get Your<br>Reward!</div>
+            </div>
+        </div>
+
+        <!-- Main CTA Button -->
+        <a href="https://shorter.me/ORz14" style="text-decoration:none">
+            <button class="unlockBtn pulse" style="width:100%;font-size:18px;padding:16px">
+                🔓 CLAIM FREE REWARD NOW
+            </button>
+        </a>
+
+        <!-- Counter -->
+        <div class="counter">
+            ⏰ <span id="count">47</span> people claimed rewards today! &nbsp;|&nbsp; 
+            🔥 <span id="remaining">12</span> rewards left
+        </div>
+
+        <!-- Social Proof -->
+        <div class="proof">
+            <div class="proof-item">⭐ 4.9/5 Rating</div>
+            <div class="proof-item">✅ 24,817 Claims</div>
+            <div class="proof-item">💰 $847K Given</div>
+        </div>
+
+        <!-- Second CTA -->
+        <a href="https://shorter.me/ORz14" style="text-decoration:none">
+            <button class="unlockBtn" style="width:100%;background:linear-gradient(135deg,#4caf50,#2e7d32)">
+                🎁 UNLOCK YOUR BONUS
+            </button>
+        </a>
+
+        <!-- Disclaimer -->
+        <div style="text-align:center;font-size:10px;color:#475569;margin-top:20px">
+            Complete one offer to verify your account. Rewards are subject to availability.
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2026 Game Vault Rewards. All rights reserved.</p>
+        <p style="margin-top:4px">This site is not affiliated with any brand mentioned.</p>
+    </div>
+
+    <!-- Histats Tracking -->
+    <script type="text/javascript">
+    var _Hasync=_Hasync||[];
+    _Hasync.push(['Histats.start','1,5037141,4,0,0,0,00010000']);
+    _Hasync.push(['Histats.fasi','1']);
+    _Hasync.push(['Histats.track_hits','']);
+    (function(){var hs=document.createElement('script');hs.type='text/javascript';hs.async=true;hs.src=('//s10.histats.com/js15_as.js');(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(hs);})();
+    </script>
+
+    <!-- Scripts -->
+    <script>
+    // Confetti on load
+    function spawnConfetti(){
+        const colors=['#2196f3','#4caf50','#ff9800','#e91e63','#9c27b0','#2196f3'];
+        for(let i=0;i<40;i++){
+            const el=document.createElement('div');
+            el.className='confetti-piece';
+            el.style.left=Math.random()*100+'%';
+            el.style.background=colors[Math.floor(Math.random()*colors.length)];
+            el.style.animationDuration=(Math.random()*2+2)+'s';
+            el.style.animationDelay=Math.random()*1+'s';
+            el.style.borderRadius=Math.random()>.5?'50%':'2px';
+            el.style.width=(Math.random()*8+6)+'px';
+            el.style.height=(Math.random()*8+6)+'px';
+            document.getElementById('confetti').appendChild(el);
+            setTimeout(()=>el.remove(),4000);
+        }
+    }
+    spawnConfetti();
+
+    // Counter animation
+    let count=47;
+    setInterval(()=>{count+=Math.floor(Math.random()*2)+1;document.getElementById('count').textContent=count},5000);
+    let rem=12;
+    setInterval(()=>{if(rem>2){rem--;document.getElementById('remaining').textContent=rem}},40000);
+    </script>
+</body>
+</html>
